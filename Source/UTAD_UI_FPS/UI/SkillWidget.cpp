@@ -66,6 +66,12 @@ void USkillWidget::UnlockAbility()
 
 void USkillWidget::UnlockSkill()
 {
+  if (GEngine)
+  {
+    FString DebugMessage = FString::Printf(TEXT("Puntos que cuesta: %d"), m_iCost);
+    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, DebugMessage);
+  }
+
   int16 iSkillPoints = m_pCharacterReference->GetSkillPoints();
   m_pCharacterReference->SetSkillPoints(iSkillPoints-m_iCost);
 
@@ -88,6 +94,15 @@ void USkillWidget::UnlockSkill()
 
 void USkillWidget::OnButtonPressed()
 {
+
+  m_iSkillPoints = m_pCharacterReference->GetSkillPoints();
+
+  if (GEngine)
+  {
+    FString DebugMessage = FString::Printf(TEXT("Puntos actuales: %d"), m_iSkillPoints);
+    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, DebugMessage);
+  }
+
   // Si no hay puntos
   if (m_iSkillPoints < m_iCost)
   {
