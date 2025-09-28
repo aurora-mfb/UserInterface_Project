@@ -1,5 +1,3 @@
-# UTAD-UI-FPS-Public
-
 <h1 align="center"> Práctica sobre interfaces: Creación de un árbol de habilidades. </h1>
 
 <p align="center">
